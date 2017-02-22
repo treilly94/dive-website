@@ -2,8 +2,11 @@ language: python
 python:
   - "2.7"
   - "3.6"
+# command to install dependencies
 env:
   - DJANGO_VERSION=1.10.5
 install:
   - pip install -q Django==$DJANGO_VERSION
   - python setup.py -q install
+# command to run tests
+script: pytest
