@@ -2,7 +2,7 @@
 # dive_website
 
 Starting the development server
-===============================
+-------------------------------
 Navigate to the diveguide directory and run  
 ```
 python manage.py runserver
