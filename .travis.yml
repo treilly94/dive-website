@@ -6,10 +6,7 @@ env:
   - DJANGO_VERSION=1.10.5
 install:
   - pip install -q Django==$DJANGO_VERSION
-before_script:
-  - mysql -e 'create database mysite_db;'
-  - python manage.py syncdb --noinput
 # command to run tests
 script:
     - pytest tests/test.py
-    - python manage.py test polls
+    - python diveguide/manage.py test polls
