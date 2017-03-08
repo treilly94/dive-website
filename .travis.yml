@@ -8,5 +8,4 @@ install:
   - pip install -q Django==$DJANGO_VERSION
 # command to run tests
 script:
-    - pytest tests/test.py
-    - python diveguide/manage.py test polls
+    - python diveguide/manage.py test
