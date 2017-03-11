@@ -43,7 +43,7 @@ def vote(request, question_id):
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
         # Redisplay the question voting form.
-        return render(request, 'polls/detail.html', {
+        return render(request, 'pages/detail.html', {
             'question': question,
             'error_message': "You didn't select a choice.",
         })
@@ -53,4 +53,4 @@ def vote(request, question_id):
         # Always return an HttpResponseRedirect after successfully dealing
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
-        return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
+        return HttpResponseRedirect(reverse('pages:results', args=(question.id,)))
