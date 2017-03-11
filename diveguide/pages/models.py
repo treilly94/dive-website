@@ -25,3 +25,17 @@ class Choice(models.Model):
 
     def __str__(self):
         return self.choice_text
+
+class Location(models.Model):
+    location_name = models.CharField(max_length=200)
+    last_updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.location_name
+
+    def was_updated_recently(self):
+        now = timezone.now()
+        return now - datetime.timedelta(days=7) <= self.last_updated <= now
+    was_updated_recently.admin_order_field = 'last_updated'
+    was_updated_recently.boolean = True
+    was_updated_recently.short_description = 'Updated recently?'
