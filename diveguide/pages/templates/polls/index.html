@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Polls Index</title>
+  <title>Pages Index</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -75,15 +75,15 @@
       <p><a href="#">Link</a></p>
     </div>
     <div class="col-sm-8 text-left">
-      <h1>Polls</h1>
+      <h1>Pages</h1>
       {% if latest_question_list %}
           <ul>
           {% for question in latest_question_list %}
-              <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+              <li><a href="{% url 'pages:detail' question.id %}">{{ question.question_text }}</a></li>
           {% endfor %}
           </ul>
       {% else %}
-          <p>No polls are available.</p>
+          <p>No pages are available.</p>
       {% endif %}
     </div>
     <div class="col-sm-2 sidenav">
