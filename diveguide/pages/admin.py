@@ -23,6 +23,8 @@ class LocationAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,                  {'fields': ['location_name']}),
         ('Environment',         {'fields': ['water']}),
+        ('Location',            {'fields': ['address',
+                                            'google_place_id']}),
         ('Contact information', {'fields': ['contact_phone',
                                             'contact_email',
                                             'contact_website']}),
