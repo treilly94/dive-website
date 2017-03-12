@@ -30,7 +30,9 @@ class Location(models.Model):
     location_name = models.CharField(max_length=200)
     WATER_CHOICES = (('FW', 'Fresh water'), ('SW', 'Salt water'))
     water = models.CharField(max_length=2, choices=WATER_CHOICES, default='SW')
-    contact_email = models.EmailField(max_length=200, default='')
+    contact_phone = models.CharField(max_length=20, default='', blank=True)
+    contact_email = models.EmailField(max_length=200, default='', blank=True)
+    contact_website = models.EmailField(max_length=200, default='', blank=True)
     last_updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):

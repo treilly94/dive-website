@@ -21,9 +21,11 @@ admin.site.register(Question, QuestionAdmin)
 
 class LocationAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None,               {'fields': ['location_name']}),
-        (None,               {'fields': ['water']}),
-        (None,               {'fields': ['contact_email']}),
+        (None,                  {'fields': ['location_name']}),
+        ('Environment',         {'fields': ['water']}),
+        ('Contact information', {'fields': ['contact_phone',
+                                            'contact_email',
+                                            'contact_website']}),
     ]
     list_display = ('location_name', 'last_updated', 'was_updated_recently')
     list_filter = ['water']
