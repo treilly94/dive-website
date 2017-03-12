@@ -84,6 +84,12 @@
             <p>Email: <a>{{ location.contact_email }}</a></p>
             <p>Website: <a>{{ location.contact_website }}</a></p>
         </div>
+        <div class="well">
+            <h2>Map</h2>
+            <iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDRZ4QO3nlkPQnmeDlu-5aiuwCnBk1EiY0&q=place_id:{{location.google_place_id}}" allowfullscreen>
+</iframe>
+
+        </div>
     </div>
     <div class="col-sm-8 text-left">
         <h1>{{ location.location_name }}</h1>
