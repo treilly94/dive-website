@@ -35,7 +35,7 @@ class Location(models.Model):
     google_place_id = models.CharField(max_length=100, default='')
     contact_phone = models.CharField(max_length=20, default='', blank=True)
     contact_email = models.EmailField(max_length=200, default='', blank=True)
-    contact_website = models.CharField(max_length=200, default='', blank=True)
+    contact_website = models.URLField(max_length=200, default='', blank=True)
     last_updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
