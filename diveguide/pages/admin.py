@@ -21,7 +21,8 @@ admin.site.register(Question, QuestionAdmin)
 
 class LocationAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None,                  {'fields': ['location_name']}),
+        (None,                  {'fields': ['location_name',
+                                            'description']}),
         ('Environment',         {'fields': ['water']}),
         ('Location',            {'fields': ['address',
                                             'google_place_id']}),
