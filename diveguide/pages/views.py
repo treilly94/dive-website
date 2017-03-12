@@ -4,32 +4,29 @@ from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
 
-from .models import Question, Choice
+from .models import Question, Choice, Location
 
 
 class IndexView(generic.ListView):
     template_name = 'pages/index.html'
-    context_object_name = 'latest_question_list'
+    context_object_name = 'latest_location_list'
 
     def get_queryset(self):
         """
-        Return the last five published questions (not including those set to be
-        published in the future).
+        Return the all locations alphabetically
         """
-        return Question.objects.filter(
-            pub_date__lte=timezone.now()
-        ).order_by('-pub_date')[:5]
+        return Location.objects.order_by('location_name')
 
 
 class DetailView(generic.DetailView):
-    model = Question
+    model = Location
     template_name = 'pages/detail.html'
 
     def get_queryset(self):
         """
         Excludes any questions that aren't published yet.
         """
-        return Question.objects.filter(pub_date__lte=timezone.now())
+        return Location.objects
 
 
 class ResultsView(generic.DetailView):

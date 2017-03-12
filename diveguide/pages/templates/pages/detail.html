@@ -70,24 +70,24 @@
 <div class="container-fluid text-center">
   <div class="row content">
     <div class="col-sm-2 sidenav">
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
+        <div class="well">
+            <h2>Water type</h2>
+            {% if location.water == 'SW' %}
+                <p>Salt</p>
+            {% elif location.water == 'FW' %}
+                <p>Fresh</p>
+            {% endif %}
+        </div>
+        <div class="well">
+            <h2>Contact details</h2>
+            <p>Phone number: {{ location.contact_phone }}</p>
+            <p>Email: <a>{{ location.contact_email }}</a></p>
+            <p>Website: <a>{{ location.contact_website }}</a></p>
+        </div>
     </div>
     <div class="col-sm-8 text-left">
-        <h1>{{ question.question_text }}</h1>
+        <h1>{{ location.location_name }}</h1>
 
-        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-
-        <form action="{% url 'pages:vote' question.id %}" method="post">
-        {% csrf_token %}
-        {% for choice in question.choice_set.all %}
-            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
-            <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
-        {% endfor %}
-        <br>
-        <input type="submit" value="Vote" />
-        </form>
     </div>
     <div class="col-sm-2 sidenav">
       <div class="well">
