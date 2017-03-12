@@ -23,18 +23,18 @@ class LocationAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,                  {'fields': ['location_name',
                                             'description']}),
-        ('Environment',         {'fields': ['water']}),
-        ('Location',            {'fields': ['address',
+        ('Site details',        {'fields': ['water_type']}),
+        ('Location details',    {'fields': ['address',
                                             'latitude',
                                             'longitude',
                                             'google_place_id',
                                             'metoffice_id']}),
-        ('Contact information', {'fields': ['contact_phone',
+        ('Contact details',     {'fields': ['contact_phone',
                                             'contact_email',
                                             'contact_website']}),
     ]
     list_display = ('location_name', 'last_updated', 'was_updated_recently')
-    list_filter = ['water']
+    list_filter = ['water_type']
     search_fields = ['location_name']
 
 admin.site.register(Location, LocationAdmin)

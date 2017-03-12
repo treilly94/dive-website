@@ -27,18 +27,20 @@ class Choice(models.Model):
         return self.choice_text
 
 class Location(models.Model):
+    # Basics
     location_name = models.CharField(max_length=200)
     description = models.TextField(max_length=500, default='', blank=True)
+    # Site details
+    WATER_TYPES = (('FW', 'Fresh water'), ('SW', 'Salt water'))
+    water_type = models.CharField(max_length=2, choices=WATER_TYPES, default='SW')
 
-    WATER_CHOICES = (('FW', 'Fresh water'), ('SW', 'Salt water'))
-    water = models.CharField(max_length=2, choices=WATER_CHOICES, default='SW')
-
+    # Location details
     address = models.CharField(max_length=200, default='', blank=True)
-    latitude = models.CharField(max_length=200, default='')
-    longitude = models.CharField(max_length=200, default='')
+    latitude = models.CharField(max_length=10, default='')
+    longitude = models.CharField(max_length=10, default='')
     metoffice_id = models.CharField(max_length=100, default='')
     google_place_id = models.CharField(max_length=100, default='')
-
+    # Contact details
     contact_phone = models.CharField(max_length=20, default='', blank=True)
     contact_email = models.EmailField(max_length=200, default='', blank=True)
     contact_website = models.URLField(max_length=200, default='', blank=True)
