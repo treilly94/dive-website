@@ -58,6 +58,13 @@ class Location(models.Model):
     def was_updated_recently(self):
         now = timezone.now()
         return now - datetime.timedelta(days=7) <= self.last_updated <= now
-    was_updated_recently.admin_order_field = 'last_updated'
     was_updated_recently.boolean = True
     was_updated_recently.short_description = 'Updated recently?'
+
+    def is_free(self):
+        if self.parking_cost == 'Free' and self.dive_cost == 'Free':
+            return True
+        else:
+            return False
+    is_free.boolean = True
+    is_free.short_description = 'Free dive and parking'
