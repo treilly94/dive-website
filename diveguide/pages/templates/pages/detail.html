@@ -96,10 +96,13 @@
             <div class="col-sm-6 text-left">
                 <div class="well">
                     <h2>Weather</h2>
+                    <iframe width="100%" height="100%" frameborder="0" style="border:0" src="http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/352322?res=3hourly&key=835b21a1-bca4-4793-83ae-ca7aa5337587" allowfullscreen></iframe>
+
                 </div>
                 {% if location.water == 'SW' %}
                     <div class="well">
                         <h2>Tide</h2>
+                        <iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://www.worldtides.info/api?extremes&lat=52.998857&lon=-4.423768&key=2103f18d-5c58-4bb9-a6bf-3cdde4a9b42a" allowfullscreen></iframe>
                     </div>
                 {% endif %}
                 <div class="well">
