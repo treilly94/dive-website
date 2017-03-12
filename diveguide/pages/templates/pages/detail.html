@@ -8,11 +8,22 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
+
     /* Remove the navbar's default margin-bottom and rounded borders */
     .navbar {
         margin-bottom: 0;
         border-radius: 0;
     }
+    {% if location.water == 'SW' %}
+        .navbar {
+            background-color: rgb(21, 55, 30);
+        }
+    {% elif location.water == 'FW' %}
+        .navbar {
+            background-color: rgb(28, 40, 74);
+        }
+
+    {% endif %}
 
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
     .row.content {height: 450px}
