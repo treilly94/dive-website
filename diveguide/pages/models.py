@@ -33,7 +33,12 @@ class Location(models.Model):
     # Site details
     WATER_TYPES = (('FW', 'Fresh water'), ('SW', 'Salt water'))
     water_type = models.CharField(max_length=2, choices=WATER_TYPES, default='SW')
-
+    WATER_ACCESS = (('RA', 'Ramp'), ('ST', 'Stairs'), ('LA', 'Ladder'), ('BO', 'Boat'))
+    water_access = models.CharField(max_length=2, choices=WATER_ACCESS, default='RA')
+    parking_cost = models.CharField(max_length=15, default='Free', blank=True)
+    dive_cost = models.CharField(max_length=15, default='Free', blank=True)
+    MEDICAL = (('Y', 'Yes'), ('N', 'No'))
+    medical = models.CharField(max_length=2, choices=MEDICAL, default='N')
     # Location details
     address = models.CharField(max_length=200, default='', blank=True)
     latitude = models.CharField(max_length=10, default='')

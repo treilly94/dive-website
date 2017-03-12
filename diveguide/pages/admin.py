@@ -23,7 +23,11 @@ class LocationAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,                  {'fields': ['location_name',
                                             'description']}),
-        ('Site details',        {'fields': ['water_type']}),
+        ('Site details',        {'fields': ['water_type',
+                                            'water_access',
+                                            'parking_cost',
+                                            'dive_cost',
+                                            'medical']}),
         ('Location details',    {'fields': ['address',
                                             'latitude',
                                             'longitude',
