@@ -61,10 +61,18 @@ class Location(models.Model):
     was_updated_recently.boolean = True
     was_updated_recently.short_description = 'Updated recently?'
 
-    def is_free(self):
-        if self.parking_cost == 'Free' and self.dive_cost == 'Free':
+    def free_parking(self):
+        if self.parking_cost == 'Free':
             return True
         else:
             return False
-    is_free.boolean = True
-    is_free.short_description = 'Free dive and parking'
+    free_parking.boolean = True
+    free_parking.short_description = 'Free parking'
+
+    def free_dive(self):
+        if self.dive_cost == 'Free':
+            return True
+        else:
+            return False
+    free_dive.boolean = True
+    free_dive.short_description = 'Free diving'

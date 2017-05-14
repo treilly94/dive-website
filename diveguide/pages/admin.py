@@ -37,7 +37,7 @@ class LocationAdmin(admin.ModelAdmin):
                                             'contact_email',
                                             'contact_website']}),
     ]
-    list_display = ('location_name', 'last_updated', 'was_updated_recently', 'is_free')
+    list_display = ('location_name', 'last_updated', 'was_updated_recently', 'free_parking', 'free_dive')
     list_filter = ['water_type']
     search_fields = ['location_name']
 
