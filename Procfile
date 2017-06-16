@@ -1,1 +1,1 @@
-web: gunicorn diveguide.wsgi
+web: gunicorn diveguide/diveguide.wsgi
