@@ -1,1 +1,1 @@
-web: python diveguide/manage.py runserver
+web: gunicorn diveguide/diveguide.wsgi
