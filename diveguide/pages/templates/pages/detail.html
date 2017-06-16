@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ location.location_name }}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+        margin-bottom: 0;
+        border-radius: 0;
+    }
+    {% if location.water_type == 'SW' %}
+        .navbar {
+            background-color: rgb(21, 55, 30);
+        }
+    {% elif location.water_type == 'FW' %}
+        .navbar {
+            background-color: rgb(28, 40, 74);
+        }
+
+    {% endif %}
+
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+        padding-top: 20px;
+        background-color: #f1f1f1;
+        height: 100%;
+    }
+
+    /* Set black background color, white text and some padding */
+    footer {
+        background-color: #555;
+        color: white;
+        padding: 15px;
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+        .sidenav {
+            height: auto;
+            padding: 15px;
+        }
+        .row.content {height:auto;}
+    }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Logo</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="{% url 'pages:index' %}">Sites</a></li>
+                    <li><a href="#">Log a Dive</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{% url 'admin:index' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid text-left">
+        <h1>{{ location.location_name }}</h1>
+        <div class="row content">
+            <div class="col-sm-6 text-left">
+                {% if location.description != '' %}
+                    <div class="well">
+                        <h2>Description</h2>
+                        {{location.description}}
+                    </div>
+                {% endif %}
+                <div class="well">
+                    <h2>Site</h2>
+                    <p>Address: {{ location.address }}</p>
+                    <p>Water type: {{ location.get_water_type_display }}</p>
+                    <p>Water access: {{ location.get_water_access_display }}</p>
+                    <p>Parking cost: {{ location.parking_cost }}</p>
+                    <p>Dive cost: {{ location.dive_cost }}</p>
+                    <p>On site medical equipment: {{ location.get_medical_display }}</p>
+                </div>
+                {% if location.contact_phone != '' or location.contact_email != '' or location.contact_website != '' %}
+                    <div class="well">
+                        <h2>Contact details</h2>
+                        <p>Phone number: {{ location.contact_phone }}</p>
+                        <p>Email: <a>{{ location.contact_email }}</a></p>
+                        <p>Website: <a>{{ location.contact_website }}</a></p>
+                    </div>
+                {% endif %}
+                <div class="well">
+                    <h2>Site Map</h2>
+
+                </div>
+            </div>
+            <div class="col-sm-6 text-left">
+                <div class="well">
+                    <h2>Weather</h2>
+                    <iframe width="100%" height="100%" frameborder="0" style="border:0" src="http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/352322?res=3hourly&key=835b21a1-bca4-4793-83ae-ca7aa5337587" allowfullscreen></iframe>
+
+                </div>
+                {% if location.water_type == 'SW' %}
+                    <div class="well">
+                        <h2>Tide</h2>
+                        <iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://www.worldtides.info/api?extremes&lat=52.998857&lon=-4.423768&key=2103f18d-5c58-4bb9-a6bf-3cdde4a9b42a" allowfullscreen></iframe>
+                    </div>
+                {% endif %}
+                <div class="well">
+                    <h2>Road Map</h2>
+                    <iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDRZ4QO3nlkPQnmeDlu-5aiuwCnBk1EiY0&q=place_id:{{location.google_place_id}}" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 text-left well">
+            <h2>User data</h2>
+        </div>
+    </div>
+    <footer class="container-fluid text-center">
+        <p>Footer Text</p>
+    </footer>
+</body>
+</html>
