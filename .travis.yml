@@ -7,6 +7,7 @@ env:
 install:
   - pip install -q Django==$DJANGO_VERSION
   - pip install -q whitenoise==3.2
+  - pip install -q psycopg2==2.6.2
 # command to run tests
 script:
     - python manage.py test
