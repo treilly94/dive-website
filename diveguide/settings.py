@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'dive-website.herokuapp.com',
+    '127.0.0.1'
 ]
 
 
