@@ -25,7 +25,9 @@ SECRET_KEY = '-z*x%jz$wmh0l&ha209$q72z(0mwzf!xgby)^u)5h(x$a1c)@m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'dive-website.herokuapp.com',
+]
 
 
 # Application definition
