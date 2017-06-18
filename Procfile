@@ -1,1 +1,2 @@
-web: gunicorn diveguide/diveguide.wsgi
+release: python manage.py migrate
+web: gunicorn diveguide.wsgi
