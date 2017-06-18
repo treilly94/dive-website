@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'diveguide.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd7km0ct9ioh694',
+        'USER': 'hqqpypnbwdywoa',
+        'PASSWORD': 'c1da1dfa604abfbac2a7fb0c6d0a0822a4baa6036c1e899772e4ce896f5c05bf',
+        'HOST': 'ec2-176-34-113-15.eu-west-1.compute.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
