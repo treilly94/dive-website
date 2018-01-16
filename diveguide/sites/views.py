@@ -4,7 +4,7 @@ from .models import Location
 
 
 class IndexView(generic.ListView):
-    template_name = 'pages/index.html'
+    template_name = 'sites/index.html'
     context_object_name = 'latest_location_list'
 
     def get_queryset(self):
@@ -16,7 +16,7 @@ class IndexView(generic.ListView):
 
 class DetailView(generic.DetailView):
     model = Location
-    template_name = 'pages/detail.html'
+    template_name = 'sites/detail.html'
 
     def get_queryset(self):
         """

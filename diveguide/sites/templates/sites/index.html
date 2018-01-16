@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Pages Index</title>
+    <title>Sites</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -56,7 +56,7 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li><a href="#">Home</a></li>
-                    <li class="active"><a href="{% url 'pages:index' %}">Sites</a></li>
+                    <li class="active"><a href="{% url 'sites:index' %}">Sites</a></li>
                     <li><a href="#">Log a Dive</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
@@ -74,7 +74,7 @@
                 <ul>
                     {% for location in latest_location_list %}
                         {% if location.water_type == 'FW' %}
-                        <h3><a href="{% url 'pages:detail' location.id %}">{{ location.location_name }}</a></h3>
+                        <h3><a href="{% url 'sites:detail' location.id %}">{{ location.location_name }}</a></h3>
                         {% endif %}
                     {% endfor %}
                 </ul>
@@ -84,7 +84,7 @@
                 <ul>
                     {% for location in latest_location_list %}
                         {% if location.water_type == 'SW' %}
-                        <h3><a href="{% url 'pages:detail' location.id %}">{{ location.location_name }}</a></h3>
+                        <h3><a href="{% url 'sites:detail' location.id %}">{{ location.location_name }}</a></h3>
                         {% endif %}
                     {% endfor %}
                 </ul>
