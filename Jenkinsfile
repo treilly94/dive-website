@@ -12,8 +12,8 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'cd diveguide'
-                sh 'python manage.py test'
+                sh 'chmod u+x ./jenkins'
+                sh './jenkins/test.sh'
             }
         }
         stage('Deliver') {
