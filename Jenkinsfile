@@ -12,7 +12,8 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'python ./diveguide/manage.py test'
+                sh 'cd diveguide'
+                sh 'python manage.py test'
             }
         }
         stage('Deliver') {
