@@ -7,12 +7,12 @@ pipeline {
     stages {
         stage('Initialise') {
             steps {
+                sh 'chmod u+x ./jenkins'
                 sh 'pip install -r ./requirements.txt'
             }
         }
         stage('Test') {
             steps {
-                sh 'chmod u+x ./jenkins'
                 sh './jenkins/test.sh'
             }
         }
