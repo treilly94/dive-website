@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/treilly94/dive_website.svg?branch=development)](https://travis-ci.org/treilly94/dive_website)
+[![Build Status](https://travis-ci.org/treilly94/dive-website.svg?branch=development)](https://travis-ci.org/treilly94/dive-website)
 # dive_website
 
 ## Starting the development server
