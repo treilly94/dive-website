@@ -1,3 +1,5 @@
+# Based on this tutorial https://docs.docker.com/compose/django/#connect-the-database
+
 version: '3'
 
 services:
@@ -5,7 +7,7 @@ services:
     image: postgres
   web:
     build: .
-    command: python3 manage.py runserver 0.0.0.0:8000
+    command: python3 diveguide/manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code
     ports:
