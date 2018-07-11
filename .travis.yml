@@ -1,3 +1,8 @@
+# Resolve hostnames
+addons:
+  hosts:
+    - db
+
 # Setup python
 language: python
 python:
@@ -8,8 +13,6 @@ install:
 # Setup database
 services:
 - postgresql
-env:
-- db=postgres
 
 # Migrate database and run tests
 script:
