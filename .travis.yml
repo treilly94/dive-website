@@ -16,5 +16,5 @@ services:
 
 # Migrate database and run tests
 script:
-    - python diveguide/manage.py migrate
-    - ./jenkins/test.sh
+    - ./scripts/migrate.sh
+    - ./scripts/test.sh
