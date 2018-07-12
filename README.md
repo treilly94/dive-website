@@ -7,6 +7,9 @@ Navigate to the diveguide directory and run
 python manage.py runserver
 ```
 
+It will need a database connection. Temporally change the Database configuration in the settings.py to match 
+your database.
+
 ## Starting docker compose
 The docker compose files were made based on [this tutorial](https://docs.docker.com/compose/django/#connect-the-database).
 The containers can be started using the below command:  
