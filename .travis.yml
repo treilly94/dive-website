@@ -27,4 +27,6 @@ jobs:
 
     - stage: deploy
       if: branch = master
-      script: echo "deploy!!!"
+      script: echo "deploy master!!!"
+      if: branch = development
+      script: echo "deploy master!!!"
