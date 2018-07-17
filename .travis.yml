@@ -17,7 +17,14 @@ python:
 install:
   - pip install -r requirements.txt
 
-# Migrate database and run tests
-script:
-    - ./scripts/migrate.sh
-    - ./scripts/test.sh
+jobs:
+  include:
+    - stage: compile
+      script: ./scripts/migrate.sh
+
+    - stage: test
+      script: ./scripts/test.sh
+
+    - stage: deploy
+      if: branch = master
+      script: echo "deploy!!!"
