@@ -1,7 +1,14 @@
+sudo: required
+
 # Resolve hostnames
 addons:
   hosts:
     - db
+
+# Setup services
+services:
+- postgresql
+- docker
 
 # Setup python
 language: python
@@ -9,10 +16,6 @@ python:
   - "3.6"
 install:
   - pip install -r requirements.txt
-
-# Setup database
-services:
-- postgresql
 
 # Migrate database and run tests
 script:
